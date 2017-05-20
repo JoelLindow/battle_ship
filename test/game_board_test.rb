@@ -35,4 +35,5 @@ class GameBoardTest < Minitest::Test
     assert_equal full_board, board.full_board
   end
 
+
 end

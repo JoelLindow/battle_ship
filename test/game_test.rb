@@ -19,21 +19,7 @@ class GameTest < Minitest::Test
     assert_equal message.quit_game_message, game.quit_game_message
   end
 
-  def test_it_can_place_ships_for_computer
 
-  end
-
-  def test_it_can_randomly_place_an_element
-    game = Game.new
-    game.random_placement("X")
-
-    assert_equal " X ", game.random_placement("X")
-    refute_equal " Y", game.random_placement("X")
-
-    check = game.game_board.board.values.flatten
-
-    assert check.include?(" X ")
-  end
 
 
 

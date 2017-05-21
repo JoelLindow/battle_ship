@@ -10,11 +10,6 @@ class Game
   end
 
 
-  def random_placement(item)
-    random_key = @game_board.board.keys.sample
-    @game_board.board[random_key][rand(0..3)] = (" " + item + " ")
-  end
-
   def messages
     Messages.new
   end

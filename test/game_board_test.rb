@@ -34,4 +34,12 @@ class GameBoardTest < Minitest::Test
     assert_equal full_game_board, board.full_board_view
   end
 
+  def test_game_can_create_gameboard_for_computer_player_by_default
+    computer_board = GameBoard.new
+
+    assert_equal "Computer", computer_board.board_user
+  end
+
+
+
 end

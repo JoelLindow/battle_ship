@@ -1,7 +1,9 @@
 class GameBoard
+  attr_reader :board_user
   attr_accessor :data
 
-  def initialize
+  def initialize(name = "Computer")
+    @board_user = name
     @data = [
             [" . ", " . ", " . ", " . "],
             [" . ", " . ", " . ", " . "],

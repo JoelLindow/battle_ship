@@ -1,5 +1,15 @@
 class Messages
 
+  def main_menu_message
+    "Welcome to the exciting and spine tingling strategy game
+    █████   ████  ██████ ██████ ██    █████  ████  ██  ██ ██████ █████
+    ██  ██ ██  ██   ██     ██   ██    ██    ██     ██  ██   ██   ██  ██
+    █████  ██████   ██     ██   ██    ████    ██   ██████   ██   █████
+    ██  ██ ██  ██   ██     ██   ██    ██        ██ ██  ██   ██   ██
+    █████  ██  ██   ██     ██   █████ █████  ████  ██  ██ ██████ ██
+    Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
+  end
+
   def ship_placement_message
 "I have laid out my ships on the grid.          GAME GRID
 You now need to layout your two ships..        =========
@@ -12,16 +22,6 @@ D4 at the bottom right.                        =========
 
 Enter the squares for the two-unit ship:"
   end
-#
-  def main_menu_message
-    "Welcome to the exciting and spine tingling strategy game
-█████   ████  ██████ ██████ ██    █████  ████  ██  ██ ██████ █████
-██  ██ ██  ██   ██     ██   ██    ██    ██     ██  ██   ██   ██  ██
-█████  ██████   ██     ██   ██    ████    ██   ██████   ██   █████
-██  ██ ██  ██   ██     ██   ██    ██        ██ ██  ██   ██   ██
-█████  ██  ██   ██     ██   █████ █████  ████  ██  ██ ██████ ██
-Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
-  end
 
   def instructions_message
     "Instructions
@@ -29,7 +29,6 @@ Instructions
 Instructions
 Instructions
 ---Press Enter Key to Continue ---"
-
   end
 
   def quit_game_message

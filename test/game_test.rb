@@ -19,8 +19,18 @@ class GameTest < Minitest::Test
     assert_equal message.quit_game_message, game.quit_game_message
   end
 
+  def test_game_can_create_gameboard_for_computer_player_by_default
+    game = Game.new
 
+    assert_equal "Computer", game.computer_board.board_user
+  end
 
+  def test_board_can_create_board_for_user_and_computer_in_same_game
+    game = Game.new
+
+    assert_equal "Computer", game.computer_board.board_user
+    assert_equal "Player", game.user_board.board_user
+  end
 
 
 end

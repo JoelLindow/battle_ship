@@ -40,6 +40,10 @@ class GameBoardTest < Minitest::Test
     assert_equal "Computer", computer_board.board_user
   end
 
+  def test_board_can_create_board_for_user
+    user_board = GameBoard.new("Human")
 
+    assert_equal "Human", user_board.board_user
+  end
 
 end

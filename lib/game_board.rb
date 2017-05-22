@@ -21,6 +21,7 @@ class GameBoard
     full_board
   end
 
+
   def correct_board
     if board_user == "Computer"
       csp = ComputerShipPlacement.new

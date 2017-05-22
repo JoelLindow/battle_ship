@@ -21,9 +21,9 @@ class BattleshipMenu
       start_menu
     elsif menu_input == ("p" || "play")
       system "clear"
-      game.game_start_time = Time.now
+      # game.game_start_time = Time.now
       puts game.start_game_message
-      game.active_game_play
+      # game.active_game_play
     else
       system "clear"
       start_menu

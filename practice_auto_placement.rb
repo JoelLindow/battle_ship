@@ -27,14 +27,14 @@ def auto_generate_ships
 end
 
 # auto_generate_ships
-
-print data_rotate[0]
-puts
-print data_rotate[1]
-puts
-print data_rotate[2]
-puts
-print data_rotate[3]
+#
+# print data_rotate[0]
+# puts
+# print data_rotate[1]
+# puts
+# print data_rotate[2]
+# puts
+# print data_rotate[3]
 
 # binding.pry
 ""

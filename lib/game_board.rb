@@ -1,3 +1,4 @@
+require './lib/computer_ship_placement'
 require 'pry'
 
 class GameBoard
@@ -6,12 +7,7 @@ class GameBoard
 
   def initialize(name = "Computer")
     @board_user = name
-    @data = [
-            [" . ", " . ", " . ", " . "],
-            [" . ", " . ", " . ", " . "],
-            [" . ", " . ", " . ", " . "],
-            [" . ", " . ", " . ", " . "]
-            ]
+    @data = correct_board
   end
 
   def full_board_view
@@ -45,4 +41,22 @@ class GameBoard
     data_positions_rotate
   end
 
+  def correct_board
+    if board_user == "Computer"
+      csp = ComputerShipPlacement.new
+      csp.computer_board
+    else
+      [
+        [" . ", " . ", " . ", " . "],
+        [" . ", " . ", " . ", " . "],
+        [" . ", " . ", " . ", " . "],
+        [" . ", " . ", " . ", " . "]
+      ]
+    end
+  end
 end
+
+
+binding.pry
+
+""

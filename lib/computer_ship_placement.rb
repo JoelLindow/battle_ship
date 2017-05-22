@@ -42,15 +42,73 @@ class ComputerShipPlacement
   end
 
   def second_boat_placement
-    boat_2_start_row = rand(1..2)
-    boat_2_start_index = rand(1..2)
-    start_location_boat_two = computer_board[boat_2_start_row][boat_2_start_index]
-    if start_location_boat_two == " . "
-      computer_board[boat_2_start_row][boat_2_start_index] = " B "
-    else
-      second_boat_placement
+    direction_boat_2 = boat_direction
+    #0 is horizontal
+    if direction_boat_2 == 0
+      if @computer_board[boat_2_start_row][boat_2_start_index + 1] == " . " && @computer_board[boat_2_start_row][boat_2_start_index + 2] == " . "
+        @computer_board[boat_2_start_row][boat_2_start_index + 1] = " B "
+        @computer_board[boat_2_start_row][boat_2_start_index + 2] = " B "
+      elsif @computer_board[boat_2_start_row][boat_2_start_index - 1] == " . " && @computer_board[boat_2_start_row][boat_2_start_index + 1] == " . "
+        @computer_board[boat_2_start_row][boat_2_start_index - 1] = " B "
+        @computer_board[boat_2_start_row][boat_2_start_index + 1] = " B "
+      elsif @computer_board[boat_2_start_row][boat_2_start_index - 1] == " . " && @computer_board[boat_2_start_row][boat_2_start_index - 2] == " . "
+        @computer_board[boat_2_start_row][boat_2_start_index - 1] = " B "
+        @computer_board[boat_2_start_row][boat_2_start_index - 2] = " B "
+      else
+        second_boat_placement
+      end
+    elsif direction_boat_2 == 1
+    #1 is vertical
+      if @computer_board[boat_2_start_row + 1][boat_2_start_index] == " . " && @computer_board[boat_2_start_row + 2][boat_2_start_index] == " . "
+        @computer_board[boat_2_start_row + 1][boat_2_start_index] = " B "
+        @computer_board[boat_2_start_row + 2][boat_2_start_index] = " B "
+      elsif @computer_board[boat_2_start_row -1 ][boat_2_start_index] == " . " && @computer_board[boat_2_start_row + 1][boat_2_start_index] == " . "
+        @computer_board[boat_2_start_row - 1][boat_2_start_index] = " B "
+        @computer_board[boat_2_start_row + 1][boat_2_start_index] = " B "
+      elsif @computer_board[boat_2_start_row -1 ][boat_2_start_index] == " . " && @computer_board[boat_2_start_row -2 ][boat_2_start_index] == " . "
+        @computer_board[boat_2_start_row - 1][boat_2_start_index] = " B "
+        @computer_board[boat_2_start_row - 2][boat_2_start_index] = " B "
+      else
+        second_boat_placement
+      end
     end
   end
+  # def second_boat_placement
+  #   boat_2_start_row = rand(1..2)
+  #   boat_2_start_index = rand(1..2)
+  #   start_location_boat_two = computer_board[boat_2_start_row][boat_2_start_index]
+  #   if start_location_boat_two == " . "
+  #     @computer_board[boat_2_start_row][boat_2_start_index] = " B "
+  #   else
+  #     second_boat_placement
+  #   end
+  #   direction_boat_2 = boat_direction
+  #   #0 is horizontal
+  #   if direction_boat_2 == 0
+  #     if @computer_board[boat_2_start_row][boat_2_start_index + 1] == " . " && @computer_board[boat_2_start_row][boat_2_start_index + 2] == " . "
+  #       @computer_board[boat_2_start_row][boat_2_start_index + 1] = " B "
+  #       @computer_board[boat_2_start_row][boat_2_start_index + 2] = " B "
+  #     elsif @computer_board[boat_2_start_row][boat_2_start_index - 1] == " . " && @computer_board[boat_2_start_row][boat_2_start_index + 1] == " . "
+  #       @computer_board[boat_2_start_row][boat_2_start_index - 1] = " B "
+  #       @computer_board[boat_2_start_row][boat_2_start_index + 1] = " B "
+  #     elsif @computer_board[boat_2_start_row][boat_2_start_index - 1] == " . " && @computer_board[boat_2_start_row][boat_2_start_index - 2] == " . "
+  #       @computer_board[boat_2_start_row][boat_2_start_index - 1] = " B "
+  #       @computer_board[boat_2_start_row][boat_2_start_index - 2] = " B "
+  #     end
+  #   elsif direction_boat_2 == 1
+  #   #1 is vertical
+  #     if @computer_board[boat_2_start_row + 1][boat_2_start_index] == " . " && @computer_board[boat_2_start_row + 2][boat_2_start_index] == " . "
+  #       @computer_board[boat_2_start_row + 1][boat_2_start_index] = " B "
+  #       @computer_board[boat_2_start_row + 2][boat_2_start_index] = " B "
+  #     elsif @computer_board[boat_2_start_row -1 ][boat_2_start_index] == " . " && @computer_board[boat_2_start_row + 1][boat_2_start_index] == " . "
+  #       @computer_board[boat_2_start_row - 1][boat_2_start_index] = " B "
+  #       @computer_board[boat_2_start_row + 1][boat_2_start_index] = " B "
+  #     elsif @computer_board[boat_2_start_row -1 ][boat_2_start_index] == " . " && @computer_board[boat_2_start_row -2 ][boat_2_start_index] == " . "
+  #       @computer_board[boat_2_start_row - 1][boat_2_start_index] = " B "
+  #       @computer_board[boat_2_start_row - 2][boat_2_start_index] = " B "
+  #     end
+  #   end
+  # end
 
   def boat_direction
     rand(0..1)

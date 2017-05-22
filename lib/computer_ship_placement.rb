@@ -12,6 +12,11 @@ class ComputerShipPlacement
   end
 
   def add_boats
+    first_boat_placement
+    second_boat_placement
+  end
+
+  def first_boat_placement
     start_row = rand(0..3)
     start_index = rand(0..2)
     start_location_boat_1 = computer_board[start_row][start_index]
@@ -37,7 +42,6 @@ class ComputerShipPlacement
         end
       end
     end
-    second_boat_placement
 
   end
 
@@ -47,7 +51,9 @@ class ComputerShipPlacement
       #0 is horizontal
       boat_2_start_row = rand(0..3)
       boat_2_start_index = rand(0..1)
-      if @computer_board[boat_2_start_row][boat_2_start_index] == " . " && @computer_board[boat_2_start_row][boat_2_start_index + 1] == " . " && @computer_board[boat_2_start_row][boat_2_start_index + 2] == " . "
+      if (@computer_board[boat_2_start_row][boat_2_start_index] &&
+          @computer_board[boat_2_start_row][boat_2_start_index + 1] &&
+          @computer_board[boat_2_start_row][boat_2_start_index + 2]) == " . "
         @computer_board[boat_2_start_row][boat_2_start_index] = " B "
         @computer_board[boat_2_start_row][boat_2_start_index + 1] = " B "
         @computer_board[boat_2_start_row][boat_2_start_index + 2] = " B "

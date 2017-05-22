@@ -10,7 +10,6 @@ class Game
     @game_start_time = 0
   end
 
-
   def messages
     Messages.new
   end

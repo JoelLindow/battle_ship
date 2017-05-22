@@ -14,9 +14,9 @@ class ComputerShipPlacement
   def add_boats
     start_row = rand(0..3)
     start_index = rand(0..2)
-    start_location = computer_board[start_row][start_index]
+    start_location_boat_1 = computer_board[start_row][start_index]
     direction_boat_1 = boat_direction
-    if start_location == " . "
+    if start_location_boat_1 == " . "
       #0 is horizontal
       if direction_boat_1 == 0
         @computer_board[start_row][start_index] = " B "
@@ -37,11 +37,26 @@ class ComputerShipPlacement
         end
       end
     end
+    second_boat_placement
+
+  end
+
+  def second_boat_placement
+    boat_2_start_row = rand(1..2)
+    boat_2_start_index = rand(1..2)
+    start_location_boat_two = computer_board[boat_2_start_row][boat_2_start_index]
+    if start_location_boat_two == " . "
+      computer_board[boat_2_start_row][boat_2_start_index] = " B "
+    else
+      second_boat_placement
+    end
   end
 
   def boat_direction
     rand(0..1)
   end
+
+
 #
 
 end

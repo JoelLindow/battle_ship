@@ -26,6 +26,9 @@ class ComputerShipPlacement
   end
 
   def horizontal_boat(boat_length)
+    if boat_length == 2
+
+
     puts "horizontal_boat"
   end
 
@@ -37,8 +40,10 @@ class ComputerShipPlacement
     rand(0..1)
   end
 
-  def two_boat_start_index
-    rand(0..2)
+  def two_boat
+    start_row = rand[0..3]
+    start_spot = rand(0..2)
+    data[start_row][start_spot] = " B "
   end
 
   def three_boat_start_index

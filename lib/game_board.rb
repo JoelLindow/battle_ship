@@ -1,3 +1,5 @@
+require 'pry'
+
 class GameBoard
   attr_reader :board_user
   attr_accessor :data
@@ -22,4 +24,25 @@ class GameBoard
                  ]
     full_board
   end
+
+  def board_reference_horizontal
+    horizontal_rows_ref = [
+                    [data[0][0], data[0][1], data[0][2], data[0][3]],
+                    [data[1][0], data[1][1], data[1][2], data[1][3]],
+                    [data[2][0], data[2][1], data[2][2], data[2][3]],
+                    [data[3][0], data[3][1], data[3][2], data[3][3]]
+                  ]
+    horizontal_rows_ref
+  end
+
+  def board_reference_vertical
+    data_positions_rotate = [
+                      [data[3][0], data[2][0], data[1][0], data[0][0]],
+                      [data[3][1], data[2][1], data[1][1], data[0][1]],
+                      [data[3][2], data[2][2], data[1][2], data[0][2]],
+                      [data[3][3], data[2][3], data[1][3], data[0][3]],
+                    ]
+    data_positions_rotate
+  end
+
 end

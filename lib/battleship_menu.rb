@@ -1,28 +1,30 @@
 require './lib/game'
-
+require "pry"
 class BattleshipMenu
 
   def start_menu
-    game = Game.new
-    puts game.main_menu_message
+    messages = Messages.new
+    puts messages.main_menu_message
     menu_input = gets.chomp.downcase
-    handle_menu_input(game, menu_input)
+    handle_menu_input(messages, menu_input)
   end
 
-  def handle_menu_input(game, menu_input)
+  def handle_menu_input(messages, menu_input)
     if menu_input == ("q" || "quit")
       system "clear"
-      puts game.quit_game_message
+      puts messages.quit_game_message
     elsif menu_input == ("i" || "instructions")
       system "clear"
-      puts game.instructions_message
+      puts messages.instructions_message
       pause = gets.chomp
       system "clear"
       start_menu
     elsif menu_input == ("p" || "play")
+      game = Game.new
+      binding.pry
       system "clear"
       # game.game_start_time = Time.now
-      puts game.start_game_message
+      puts messages.start_game_message
       # game.active_game_play
     else
       system "clear"

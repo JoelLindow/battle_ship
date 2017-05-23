@@ -1,6 +1,6 @@
 require 'pry'
 class ComputerShipPlacement
-  attr_accessor :computer_board, :boat_2_long_positions
+  attr_accessor :computer_board, :boat_2_long_positions, :boat_3_long_positions
 
   def initialize
     @computer_board = [
@@ -88,10 +88,13 @@ class ComputerShipPlacement
 end
 
 
-csp = ComputerShipPlacement.new
-csp.add_boats
-csp.computer_board.each do |row|
-  puts row.join
-end
-# binding.pry
-""
+# csp = ComputerShipPlacement.new
+# csp.add_boats
+# csp.computer_board.each do |row|
+#   puts row.join
+# end
+# print csp.boat_2_long_positions
+# puts
+# print csp.boat_3_long_positions
+# # binding.pry
+# ""

@@ -18,11 +18,25 @@ class ComputerShipPlacementTest < Minitest::Test
     assert expected.include?(placement.boat_direction)
   end
 
+  def test_two_space_long_boat_can_place_with_no_collisions
+    placement = ComputerShipPlacement
+    placement.first_boat_placement
+
+    #######################
+  end
+
   def test_it_can_place_first_boat_with_2_spots_on_board
     placement = ComputerShipPlacement.new
     placement.first_boat_placement
 
     assert_equal 2, placement.boat_2_long_positions.count
+  end
+
+  def test_three_space_long_boat_can_place_with_no_collisions
+    placement = ComputerShipPlacement
+    placement.second_boat_placement
+
+    #######################
   end
 
   def test_it_can_place_first_boat_with_3_spots_on_board

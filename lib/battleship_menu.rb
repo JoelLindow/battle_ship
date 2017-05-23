@@ -21,11 +21,10 @@ class BattleshipMenu
       start_menu
     elsif menu_input == ("p" || "play")
       game = Game.new
-      binding.pry
+      # binding.pry
       system "clear"
       # game.game_start_time = Time.now
-      puts messages.start_game_message
-      # game.active_game_play
+      game.active_game_play
     else
       system "clear"
       start_menu

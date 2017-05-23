@@ -11,7 +11,15 @@ class Game
     @game_start_time = 0
   end
 
+  def game_start_time
+
+  end
+
+  def active_game_play
+
+  end
 end
+
 #
 # binding.pry
 # ''

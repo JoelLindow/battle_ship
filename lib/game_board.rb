@@ -1,4 +1,5 @@
 require './lib/computer_ship_placement'
+require './lib/user_ship_placement'
 require 'pry'
 
 class GameBoard
@@ -28,17 +29,16 @@ class GameBoard
     if board_user == "Computer"
       csp = ComputerShipPlacement.new
       csp.add_boats
-      binding.pry
+      # binding.pry
       @small_boat = csp.boat_2_long_positions
       @big_boat = csp.boat_3_long_positions
       csp.computer_board
     else
-      [
-        [" . ", " . ", " . ", " . "],
-        [" . ", " . ", " . ", " . "],
-        [" . ", " . ", " . ", " . "],
-        [" . ", " . ", " . ", " . "]
-      ]
+      usp = UserShipPlacement.new
+      usp.add_boats
+      @small_boat = usp.boat_2_long_positions
+      @big_boat = usp.boat_3_long_positions
+      usp.user_board
     end
   end
 end

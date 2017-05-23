@@ -10,7 +10,7 @@ class Messages
     Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
   end
 
-  def ship_placement_message
+  def self.ship_placement_message
 "I have laid out my ships on the grid.          GAME GRID
 You now need to layout your two ships..        =========
                                                . 1 2 3 4
@@ -20,7 +20,8 @@ second is three units long.                    B . . . .
 The grid has A1 at the top left and            D . . . .
 D4 at the bottom right.                        =========
 
-Enter the squares for the two-unit ship:"
+Let's start placing your ships! Would you like
+to place a (h)orizontal boat or a (v)ertical boat?"
   end
 
   def instructions_message

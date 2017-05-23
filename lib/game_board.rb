@@ -7,6 +7,8 @@ class GameBoard
 
   def initialize(name = "Computer")
     @board_user = name
+    @small_boat = []
+    @big_boat = []
     @data = correct_board
   end
 
@@ -25,7 +27,11 @@ class GameBoard
   def correct_board
     if board_user == "Computer"
       csp = ComputerShipPlacement.new
-      csp.populated_computer_board
+      csp.add_boats
+      binding.pry
+      @small_boat = csp.boat_2_long_positions
+      @big_boat = csp.boat_3_long_positions
+      csp.computer_board
     else
       [
         [" . ", " . ", " . ", " . "],
@@ -36,10 +42,3 @@ class GameBoard
     end
   end
 end
-
-gbcomp = GameBoard.new
-gbplayer = GameBoard.new("Player")
-
-binding.pry
-
-""

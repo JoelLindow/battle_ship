@@ -25,7 +25,8 @@ class GameBoard
   def correct_board
     if board_user == "Computer"
       csp = ComputerShipPlacement.new
-      csp.populated_computer_board
+      csp.add_boats
+      @data = csp.computer_board
     else
       [
         [" . ", " . ", " . ", " . "],

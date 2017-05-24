@@ -19,31 +19,55 @@ class ComputerShipPlacementTest < Minitest::Test
   end
 
   def test_two_space_long_boat_can_place_with_no_collisions
-    placement = ComputerShipPlacement
-    placement.first_boat_placement
-
-    #######################
-  end
-
-  def test_it_can_place_first_boat_with_2_spots_on_board
     placement = ComputerShipPlacement.new
     placement.first_boat_placement
 
-    assert_equal 2, placement.boat_2_long_positions.count
+    assert_equal 2, placement.computer_board.flatten.count(" B ")
+  end
+
+  def test_the_two_spot_long_boat_knows_there_it_is
+    placement = ComputerShipPlacement.new
+    placement.first_boat_placement
+    boat_row = placement.boat_2_long_positions[0][0]
+    boat_index = placement.boat_2_long_positions[0][1]
+    boat_placed = placement.computer_board[boat_row][boat_index]
+
+    assert_equal " B ", boat_placed
+
+    boat_row_two = placement.boat_2_long_positions[1][0]
+    boat_index_two = placement.boat_2_long_positions[1][1]
+    boat_placed_two = placement.computer_board[boat_row][boat_index]
+
+    assert_equal " B ", boat_placed_two
   end
 
   def test_three_space_long_boat_can_place_with_no_collisions
-    placement = ComputerShipPlacement
-    placement.second_boat_placement
-
-    #######################
-  end
-
-  def test_it_can_place_first_boat_with_3_spots_on_board
     placement = ComputerShipPlacement.new
     placement.second_boat_placement
 
-    assert_equal 3, placement.boat_3_long_positions.count
+    assert_equal 3, placement.computer_board.flatten.count(" B ")
+  end
+
+  def test_the_three_spot_long_boat_knows_there_it_is
+    placement = ComputerShipPlacement.new
+    placement.second_boat_placement
+    boat_row = placement.boat_3_long_positions[0][0]
+    boat_index = placement.boat_3_long_positions[0][1]
+    boat_placed = placement.computer_board[boat_row][boat_index]
+
+    assert_equal " B ", boat_placed
+
+    boat_row_two = placement.boat_3_long_positions[1][0]
+    boat_index_two = placement.boat_3_long_positions[1][1]
+    boat_placed_two = placement.computer_board[boat_row][boat_index]
+
+    assert_equal " B ", boat_placed_two
+
+    boat_row_two = placement.boat_3_long_positions[2][0]
+    boat_index_two = placement.boat_3_long_positions[2][1]
+    boat_placed_three = placement.computer_board[boat_row][boat_index]
+
+    assert_equal " B ", boat_placed_three
   end
 
   def test_it_places_5_boat_positions_on_the_board

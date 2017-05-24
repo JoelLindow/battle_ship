@@ -30,8 +30,9 @@ class UserShipPlacement
     boat_direction_input = gets.chomp
     direction_boat_1 = keys.direction[boat_direction_input]
       if direction_boat_1 == 0      #0 is horizontal
+        system "clear"
         puts full_board_show
-        puts Messages.first_user_boat_position_prompt_horizontal_one
+        puts Messages.first_user_boat_position_prompt_horizontal_message
         input = gets.chomp.downcase
         boat_1_start_row = keys.board_position[input][0]
         boat_1_start_index = keys.board_position[input][1]
@@ -49,8 +50,12 @@ class UserShipPlacement
           first_boat_placement
         end
       elsif direction_boat_1 == 1     #1 is vertical
-        boat_1_start_row = rand(0..2)
-        boat_1_start_index = rand(0..3)
+        system "clear"
+        puts full_board_show
+        puts Messages.first_user_boat_position_prompt_vertical_message
+        input = gets.chomp.downcase
+        boat_1_start_row = keys.board_position[input][0]
+        boat_1_start_index = keys.board_position[input][1]
         if @user_board[boat_1_start_row][boat_1_start_index] == " . " &&
            @user_board[boat_1_start_row + 1][boat_1_start_index] == " . "
           @user_board[boat_1_start_row][boat_1_start_index] = " B "
@@ -58,56 +63,88 @@ class UserShipPlacement
           @user_board[boat_1_start_row + 1][boat_1_start_index] = " B "
           @boat_2_long_positions << [boat_1_start_row + 1, boat_1_start_index]
         else
+          system "clear"
+          puts Messages.invalid_boat_placement_message
+          sleep(2)
           first_boat_placement
         end
       end
+    system "clear"
+    puts full_board_show
+    puts Messages.first_boat_placed_message
+    sleep(3)
   end
-  #
-  # def second_boat_placement
-  #   direction_boat_2 = boat_direction
-  #   if direction_boat_2 == 0     #0 is horizontal
-  #     boat_2_start_row = rand(0..3)
-  #     boat_2_start_index = rand(0..1)
-  #     if @user_board[boat_2_start_row][boat_2_start_index] == " . " &&
-  #         @user_board[boat_2_start_row][boat_2_start_index + 1] == " . " &&
-  #         @user_board[boat_2_start_row][boat_2_start_index + 2] == " . "
-  #       @user_board[boat_2_start_row][boat_2_start_index] = " B "
-  #       @user_board[boat_2_start_row][boat_2_start_index + 1] = " B "
-  #       @user_board[boat_2_start_row][boat_2_start_index + 2] = " B "
-  #       @boat_3_long_positions << [boat_2_start_row, boat_2_start_index]
-  #       @boat_3_long_positions << [boat_2_start_row, boat_2_start_index + 1]
-  #       @boat_3_long_positions << [boat_2_start_row, boat_2_start_index + 2]
-  #     else
-  #       second_boat_placement
-  #     end
-  #   elsif direction_boat_2 == 1   #1 is vertical
-  #     boat_2_start_row = rand(0..1)
-  #     boat_2_start_index = rand(0..3)
-  #     if @user_board[boat_2_start_row][boat_2_start_index] == " . " &&
-  #         @user_board[boat_2_start_row + 1][boat_2_start_index] == " . " &&
-  #         @user_board[boat_2_start_row + 2][boat_2_start_index] == " . "
-  #       @user_board[boat_2_start_row][boat_2_start_index] = " B "
-  #       @user_board[boat_2_start_row + 1][boat_2_start_index] = " B "
-  #       @user_board[boat_2_start_row + 2][boat_2_start_index] = " B "
-  #       @boat_3_long_positions << [boat_2_start_row, boat_2_start_index]
-  #       @boat_3_long_positions << [boat_2_start_row + 1, boat_2_start_index]
-  #       @boat_3_long_positions << [boat_2_start_row + 2, boat_2_start_index]
-  #     else
-  #       second_boat_placement
-  #     end
-  #   end
-  # end
+
+  def second_boat_placement
+    system "clear"
+    puts full_board_show
+    puts Messages.ship_placement_message_two
+    boat_direction_input = gets.chomp
+    direction_boat_2 = keys.direction[boat_direction_input]
+    if direction_boat_2 == 0      #0 is horizontal
+      system "clear"
+      puts full_board_show
+      puts Messages.second_user_boat_position_prompt_horizontal_message
+      input = gets.chomp.downcase
+      boat_1_start_row = keys.board_position[input][0]
+      boat_1_start_index = keys.board_position[input][1]
+      if @user_board[boat_2_start_row][boat_2_start_index] == " . " &&
+          @user_board[boat_2_start_row][boat_2_start_index + 1] == " . " &&
+          @user_board[boat_2_start_row][boat_2_start_index + 2] == " . "
+        @user_board[boat_2_start_row][boat_2_start_index] = " B "
+        @user_board[boat_2_start_row][boat_2_start_index + 1] = " B "
+        @user_board[boat_2_start_row][boat_2_start_index + 2] = " B "
+        @boat_3_long_positions << [boat_2_start_row, boat_2_start_index]
+        @boat_3_long_positions << [boat_2_start_row, boat_2_start_index + 1]
+        @boat_3_long_positions << [boat_2_start_row, boat_2_start_index + 2]
+      else
+        system "clear"
+        puts Messages.invalid_boat_placement_message
+        sleep(2)
+        second_boat_placement
+      end
+    elsif direction_boat_2 == 1   #1 is vertical
+      system "clear"
+      puts full_board_show
+      puts Messages.second_user_boat_position_prompt_vertical_message
+      input = gets.chomp.downcase
+      boat_2_start_row = keys.board_position[input][0]
+      boat_2_start_index = keys.board_position[input][1]
+      if @user_board[boat_2_start_row][boat_2_start_index] == " . " &&
+          @user_board[boat_2_start_row + 1][boat_2_start_index] == " . " &&
+          @user_board[boat_2_start_row + 2][boat_2_start_index] == " . "
+        @user_board[boat_2_start_row][boat_2_start_index] = " B "
+        @user_board[boat_2_start_row + 1][boat_2_start_index] = " B "
+        @user_board[boat_2_start_row + 2][boat_2_start_index] = " B "
+        @boat_3_long_positions << [boat_2_start_row, boat_2_start_index]
+        @boat_3_long_positions << [boat_2_start_row + 1, boat_2_start_index]
+        @boat_3_long_positions << [boat_2_start_row + 2, boat_2_start_index]
+      else
+        system "clear"
+        puts Messages.invalid_boat_placement_message
+        sleep(2)
+        second_boat_placement
+      end
+    end
+    system "clear"
+    puts full_board_show
+    puts Messages.second_boat_placed_message
+    sleep(3)
+    pry
+    ""
+  end
 
   def boat_direction
     rand(0..1)
   end
 
   def full_board_show
-      "   1  2  3  4
-A #{@user_board[0][0]}#{@user_board[0][1]}#{@user_board[0][2]}#{@user_board[0][3]}
-B #{@user_board[1][0]}#{@user_board[1][1]}#{@user_board[1][2]}#{@user_board[1][3]}
-C #{@user_board[2][0]}#{@user_board[2][1]}#{@user_board[2][2]}#{@user_board[2][3]}
-D #{@user_board[3][0]}#{@user_board[3][1]}#{@user_board[3][2]}#{@user_board[3][3]}"
+      "                             1  2  3  4
+                          A #{@user_board[0][0]}#{@user_board[0][1]}#{@user_board[0][2]}#{@user_board[0][3]}
+                          B #{@user_board[1][0]}#{@user_board[1][1]}#{@user_board[1][2]}#{@user_board[1][3]}
+                          C #{@user_board[2][0]}#{@user_board[2][1]}#{@user_board[2][2]}#{@user_board[2][3]}
+                          D #{@user_board[3][0]}#{@user_board[3][1]}#{@user_board[3][2]}#{@user_board[3][3]}
+"
   end
 
 

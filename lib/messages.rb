@@ -26,8 +26,7 @@ to place a (h)orizontal boat or a (v)ertical boat?"
   end
 
   def self.ship_placement_message_two
-    "
-Now it's time to place your second ship! This ship will be 3 spots in length.
+    "Now it's time to place your second ship! This ship will be 3 spots in length.
 Would you like to place a (h)orizontal boar or a (v)ertical boat?"
   end
 

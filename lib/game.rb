@@ -12,11 +12,11 @@ class Game
   end
 
   def game_start_time
-
+    #going to lead to an instance variable that starts records start time.
   end
 
   def active_game_play
-
+    #will trigger actual gameplay once the boards are set up.
   end
 end
 

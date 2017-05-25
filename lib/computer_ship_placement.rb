@@ -77,15 +77,8 @@ class ComputerShipPlacement
     elsif direction_boat_2 == 1   #1 is vertical
       boat_2_start_row = rand(0..1)
       boat_2_start_index = rand(0..3)
-      if @computer_board[boat_2_start_row][boat_2_start_index] == " . " &&
-          @computer_board[boat_2_start_row + 1][boat_2_start_index] == " . " &&
-          @computer_board[boat_2_start_row + 2][boat_2_start_index] == " . "
-        @computer_board[boat_2_start_row][boat_2_start_index] = " B "
-        @computer_board[boat_2_start_row + 1][boat_2_start_index] = " B "
-        @computer_board[boat_2_start_row + 2][boat_2_start_index] = " B "
-        @boat_3_long_positions << [boat_2_start_row, boat_2_start_index]
-        @boat_3_long_positions << [boat_2_start_row + 1, boat_2_start_index]
-        @boat_3_long_positions << [boat_2_start_row + 2, boat_2_start_index]
+      if vertical_three_long_boat_conditions(boat_2_start_row, boat_2_start_index) == true
+        vertical_three_long_boat_placement(boat_2_start_row, boat_2_start_index)
       else
         second_boat_placement
       end
@@ -105,6 +98,21 @@ class ComputerShipPlacement
     @boat_3_long_positions << [boat_2_start_row, boat_2_start_index]
     @boat_3_long_positions << [boat_2_start_row, boat_2_start_index + 1]
     @boat_3_long_positions << [boat_2_start_row, boat_2_start_index + 2]
+  end
+
+  def vertical_three_long_boat_conditions(boat_2_start_row, boat_2_start_index)
+    (@computer_board[boat_2_start_row][boat_2_start_index] == " . " &&
+     @computer_board[boat_2_start_row + 1][boat_2_start_index] == " . " &&
+     @computer_board[boat_2_start_row + 2][boat_2_start_index] == " . ")
+  end
+
+  def vertical_three_long_boat_placement(boat_2_start_row, boat_2_start_index)
+    @computer_board[boat_2_start_row][boat_2_start_index] = " B "
+    @computer_board[boat_2_start_row + 1][boat_2_start_index] = " B "
+    @computer_board[boat_2_start_row + 2][boat_2_start_index] = " B "
+    @boat_3_long_positions << [boat_2_start_row, boat_2_start_index]
+    @boat_3_long_positions << [boat_2_start_row + 1, boat_2_start_index]
+    @boat_3_long_positions << [boat_2_start_row + 2, boat_2_start_index]
   end
 
   def boat_direction

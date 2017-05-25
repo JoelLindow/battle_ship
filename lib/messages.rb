@@ -30,7 +30,7 @@ to place a (h)orizontal boat or a (v)ertical boat?"
 Would you like to place a (h)orizontal boar or a (v)ertical boat?"
   end
 
-  def instructions_message
+  def self.instructions_message
     "Instructions
 Instructions
 Instructions

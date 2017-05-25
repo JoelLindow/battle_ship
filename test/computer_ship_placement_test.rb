@@ -70,7 +70,7 @@ class ComputerShipPlacementTest < Minitest::Test
     assert_equal " B ", boat_placed_three
   end
 
-  def test_it_places_5_boat_positions_on_the_board
+  def test_it_places_5_boat_positions_on_the_board_with_no_collision
     placement = ComputerShipPlacement.new
     placement.add_boats
 

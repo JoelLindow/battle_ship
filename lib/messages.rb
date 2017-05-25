@@ -38,7 +38,7 @@ Instructions
 ---Press Enter Key to Continue ---"
   end
 
-  def quit_game_message
+  def self.quit_game_message
     "Goodbye! Battleship will miss you!"
   end
 

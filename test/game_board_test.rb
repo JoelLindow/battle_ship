@@ -12,14 +12,13 @@ class GameBoardTest < Minitest::Test
   end
 
   def test_gameboard_has_data_structure_by_default
-    board = GameBoard.new
     game_data = [
             [" . ", " . ", " . ", " . "],
             [" . ", " . ", " . ", " . "],
             [" . ", " . ", " . ", " . "],
             [" . ", " . ", " . ", " . "]
             ]
-    assert_equal game_data, board.base_game_board
+    assert_equal game_data, GameBoard.base_game_board
   end
 
   def test_gameboard_data_can_be_presented_in_gameboard_structure

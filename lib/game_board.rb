@@ -41,7 +41,7 @@ class GameBoard
     end
   end
 
-  def base_game_board
+  def self.base_game_board
     [
             [" . ", " . ", " . ", " . "],
             [" . ", " . ", " . ", " . "],

@@ -7,8 +7,12 @@ class Game
 
   def initialize
     @computer_board = GameBoard.new
-    @user_board = GameBoard.new("Player")
+    @user_board = GameBoard.base_game_board
     @game_start_time = 0
+  end
+
+  def player_place_boats
+    @user_board = GameBoard.new("Player")
   end
 
   def game_start_time
@@ -16,6 +20,6 @@ class Game
   end
 
   def active_game_play
-    #will trigger actual gameplay once the boards are set up.
+    player_place_boats
   end
 end

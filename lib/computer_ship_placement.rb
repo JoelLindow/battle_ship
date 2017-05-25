@@ -23,12 +23,8 @@ class ComputerShipPlacement
       if direction_boat_1 == 0      #0 is horizontal
         boat_1_start_row = rand(0..3)
         boat_1_start_index = rand(0..2)
-        if @computer_board[boat_1_start_row][boat_1_start_index] == " . " &&
-           @computer_board[boat_1_start_row][boat_1_start_index + 1] == " . "
-          @computer_board[boat_1_start_row][boat_1_start_index] = " B "
-          @boat_2_long_positions << [boat_1_start_row, boat_1_start_index]
-          @computer_board[boat_1_start_row][boat_1_start_index + 1] = " B "
-          @boat_2_long_positions << [boat_1_start_row, boat_1_start_index + 1]
+        if horizonal_two_long_boat_conditions(boat_1_start_row, boat_1_start_index) == true
+          horizontal_two_long_boat_placement(boat_1_start_row, boat_1_start_index)
         else
           first_boat_placement
         end
@@ -46,6 +42,19 @@ class ComputerShipPlacement
         end
       end
   end
+
+  def horizonal_two_long_boat_conditions(boat_1_start_row, boat_1_start_index)
+    @computer_board[boat_1_start_row][boat_1_start_index] == " . " &&
+       @computer_board[boat_1_start_row][boat_1_start_index + 1] == " . "
+  end
+
+  def horizontal_two_long_boat_placement(boat_1_start_row, boat_1_start_index)
+    @computer_board[boat_1_start_row][boat_1_start_index] = " B "
+    @boat_2_long_positions << [boat_1_start_row, boat_1_start_index]
+    @computer_board[boat_1_start_row][boat_1_start_index + 1] = " B "
+    @boat_2_long_positions << [boat_1_start_row, boat_1_start_index + 1]
+  end
+
 
   def second_boat_placement
     direction_boat_2 = boat_direction

@@ -1,6 +1,6 @@
 class Messages
 
-  def main_menu_message
+  def self.main_menu_message
     "Welcome to the exciting and spine tingling strategy game
     █████   ████  ██████ ██████ ██    █████  ████  ██  ██ ██████ █████
     ██  ██ ██  ██   ██     ██   ██    ██    ██     ██  ██   ██   ██  ██
@@ -38,7 +38,7 @@ Instructions
 ---Press Enter Key to Continue ---"
   end
 
-  def quit_game_message
+  def self.quit_game_message
     "Goodbye! Battleship will miss you!"
   end
 

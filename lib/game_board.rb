@@ -29,7 +29,6 @@ class GameBoard
     if board_user == "Computer"
       csp = ComputerShipPlacement.new
       csp.add_boats
-      # binding.pry
       @small_boat = csp.boat_2_long_positions
       @big_boat = csp.boat_3_long_positions
       csp.computer_board
@@ -40,5 +39,24 @@ class GameBoard
       @big_boat = usp.boat_3_long_positions
       usp.user_board
     end
+  end
+
+  def self.base_game_board
+    [
+            [" . ", " . ", " . ", " . "],
+            [" . ", " . ", " . ", " . "],
+            [" . ", " . ", " . ", " . "],
+            [" . ", " . ", " . ", " . "]
+            ]
+  end
+
+  def base_game_board_full_output
+    [
+                  [" ", " 1 ", " 2 ", " 3 ", " 4 "],
+                  ["A", " . ", " . ", " . ", " . "],
+                  ["B", " . ", " . ", " . ", " . "],
+                  ["C", " . ", " . ", " . ", " . "],
+                  ["D", " . ", " . ", " . ", " . "]
+                    ]
   end
 end

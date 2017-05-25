@@ -86,8 +86,8 @@ class UserShipPlacement
       puts full_board_show
       puts Messages.second_user_boat_position_prompt_horizontal_message
       input = gets.chomp.downcase
-      boat_1_start_row = keys.board_position[input][0]
-      boat_1_start_index = keys.board_position[input][1]
+      boat_2_start_row = keys.board_position[input][0]
+      boat_2_start_index = keys.board_position[input][1]
       if @user_board[boat_2_start_row][boat_2_start_index] == " . " &&
           @user_board[boat_2_start_row][boat_2_start_index + 1] == " . " &&
           @user_board[boat_2_start_row][boat_2_start_index + 2] == " . "

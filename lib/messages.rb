@@ -1,6 +1,6 @@
 class Messages
 
-  def main_menu_message
+  def self.main_menu_message
     "Welcome to the exciting and spine tingling strategy game
     █████   ████  ██████ ██████ ██    █████  ████  ██  ██ ██████ █████
     ██  ██ ██  ██   ██     ██   ██    ██    ██     ██  ██   ██   ██  ██

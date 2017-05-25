@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/game_board'
+require 'rake/testtask'
 require 'pry'
 
 class GameBoardTest < Minitest::Test
@@ -18,7 +19,7 @@ class GameBoardTest < Minitest::Test
             [" . ", " . ", " . ", " . "],
             [" . ", " . ", " . ", " . "]
             ]
-    assert_equal game_data, board.data
+    assert_equal game_data, board.base_game_board
   end
 
   def test_gameboard_data_can_be_presented_in_gameboard_structure
@@ -31,27 +32,8 @@ class GameBoardTest < Minitest::Test
                   ["D", " . ", " . ", " . ", " . "]
                     ]
 
-    assert_equal full_game_board, board.full_board_view
+    assert_equal full_game_board, board.base_game_board_full_output
   end
 
-  def test_game_can_create_gameboard_for_computer_player_by_default
-    computer_board = GameBoard.new
-
-    assert_equal "Computer", computer_board.board_user
-  end
-
-  def test_board_can_create_board_for_user
-    user_board = GameBoard.new("Player")
-
-    assert_equal "Player", user_board.board_user
-  end
-
-  def test_game_can_have_2_gameboards
-    computer_board = GameBoard.new
-    user_board = GameBoard.new("Player")
-
-    assert_equal "Computer", computer_board.board_user
-    assert_equal "Player", user_board.board_user
-  end
 
 end

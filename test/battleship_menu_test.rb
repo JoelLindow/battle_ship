@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'rake/testtask'
 require_relative '../lib/battleship_menu'
 
 class BattleshipMenuTest < Minitest::Test

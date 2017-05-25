@@ -20,9 +20,6 @@ class UserShipPlacement
     second_boat_placement
   end
 
-  def keys
-    InputKeys.new
-  end
 
   def first_boat_placement
     system "clear"
@@ -42,7 +39,6 @@ class UserShipPlacement
           @boat_2_long_positions << [boat_1_start_row, boat_1_start_index]
           @user_board[boat_1_start_row][boat_1_start_index + 1] = " B "
           @boat_2_long_positions << [boat_1_start_row, boat_1_start_index + 1]
-          # binding.pry
         else
           system "clear"
           puts Messages.invalid_boat_placement_message
@@ -130,12 +126,14 @@ class UserShipPlacement
     puts full_board_show
     puts Messages.second_boat_placed_message
     sleep(3)
-    pry
-    ""
   end
 
   def boat_direction
     rand(0..1)
+  end
+
+  def keys
+    InputKeys.new
   end
 
   def full_board_show
@@ -146,18 +144,4 @@ class UserShipPlacement
                           D #{@user_board[3][0]}#{@user_board[3][1]}#{@user_board[3][2]}#{@user_board[3][3]}
 "
   end
-
-
 end
-
-
-# csp = ComputerShipPlacement.new
-# csp.add_boats
-# csp.computer_board.each do |row|
-#   puts row.join
-# end
-# print csp.boat_2_long_positions
-# puts
-# print csp.boat_3_long_positions
-# # binding.pry
-# ""

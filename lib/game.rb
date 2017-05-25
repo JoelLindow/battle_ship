@@ -19,7 +19,3 @@ class Game
     #will trigger actual gameplay once the boards are set up.
   end
 end
-
-#
-# binding.pry
-# ''

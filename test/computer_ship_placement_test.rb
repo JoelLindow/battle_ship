@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/computer_ship_placement'
+require 'rake/testtask'
 require 'pry'
 
 class ComputerShipPlacementTest < Minitest::Test

@@ -21,7 +21,6 @@ class BattleshipMenu
       start_menu
     elsif menu_input == ("p" || "play")
       game = Game.new
-      # binding.pry
       system "clear"
       # game.game_start_time = Time.now or something like that.
       # game.active_game_play

@@ -34,7 +34,7 @@ class GameTest < Minitest::Test
     game = Game.new
     hit_spot = "a2"
     game.computer_board.data[0][1] = " . "
-    game.user_shot(hit_spot)
+    game.shot(hit_spot)
 
     assert_equal " M ", game.computer_board.data[0][1]
   end
@@ -43,10 +43,11 @@ class GameTest < Minitest::Test
     game = Game.new
     hit_spot = "a2"
     game.computer_board.data[0][1] = " B "
-    game.user_shot(hit_spot)
+    game.shot(hit_spot)
 
     assert_equal " H ", game.computer_board.data[0][1]
   end
+
 
 
 

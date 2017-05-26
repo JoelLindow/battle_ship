@@ -125,4 +125,8 @@ Another invalid placement would be C3 because C3 and D3 exist but E3 does not!
   def self.second_boat_placed_message
     "Your second boat has been placed on the board. Get ready to play Battleship!"
   end
+
+  def self.user_miss
+    "No boat here. MISS!"
+  end
 end

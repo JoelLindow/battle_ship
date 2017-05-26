@@ -29,16 +29,16 @@ class Game
     keys
   end
 
-  def user_shot(spot)
+  def shot(spot)
     targeted_space = input_keys.board_position[spot]
     targeted_row = targeted_space[0]
     targeted_index = targeted_space[1]
     if computer_board.data[targeted_row][targeted_index] == " . "
+      # puts Messages.user_miss   <<<<< SHOWS IN TESTS!
       computer_board.data[targeted_row][targeted_index] = " M "
     elsif computer_board.data[targeted_row][targeted_index] == " B "
       computer_board.data[targeted_row][targeted_index] = " H "
     end
-    ""
   end
 
 

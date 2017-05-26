@@ -38,7 +38,19 @@ class Game
       computer_board.data[targeted_row][targeted_index] = " M "
     elsif computer_board.data[targeted_row][targeted_index] == " B "
       computer_board.data[targeted_row][targeted_index] = " H "
+    # elsif computer_board.data[targeted_row][targeted_index] == " H "
+    #   YOU HAVE ALREADY HIT THIS SPOT
     end
+  end
+
+  def count_hits_against_computer
+    hits_found = 0
+    computer_board.data.flatten.each do |spot|
+      if spot == " H "
+        hits_found += 1
+      end
+    end
+    hits_found
   end
 
 

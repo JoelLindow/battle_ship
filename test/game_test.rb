@@ -48,6 +48,27 @@ class GameTest < Minitest::Test
     assert_equal " H ", game.computer_board.data[0][1]
   end
 
+  def test_it_can_analyze_how_many_shots_have_hit_computer_boats_if_one
+    game = Game.new
+    hit_spot = "a2"
+    game.computer_board.data[0][1] = " B "
+    game.shot(hit_spot)
+
+    assert_equal 1, game.count_hits_against_computer
+  end
+
+  def test_it_can_analyze_how_many_shots_have_hit_computer_boats_if_two
+    game = Game.new
+    hit_spot = "a2"
+    game.computer_board.data[0][1] = " B "
+    game.shot(hit_spot)
+
+    hit_spot = "a3"
+    game.computer_board.data[0][2] = " B "
+    game.shot(hit_spot)
+
+    assert_equal 2, game.count_hits_against_computer
+  end
 
 
 

@@ -3,7 +3,7 @@ require './lib/user_ship_placement'
 require 'pry'
 
 class GameBoard
-  attr_reader :board_user
+  attr_reader :board_user, :small_boat, :big_boat
   attr_accessor :data
 
   def initialize(name = "Computer")

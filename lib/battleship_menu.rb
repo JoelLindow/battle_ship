@@ -5,6 +5,7 @@ class BattleshipMenu
 
   def start_menu
     puts Messages.main_menu_message
+    # `say welcome to battleship`
     menu_input = gets.chomp.downcase
     handle_menu_input(menu_input)
   end

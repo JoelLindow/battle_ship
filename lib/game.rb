@@ -53,16 +53,16 @@ class Game
     hits_found
   end
 
-  def boat_2_long_sunk?
+  def computer_boat_2_long_sunk?
     if (computer_board.data[computer_board.small_boat[0][0][0]][computer_board.small_boat[0][0][1]] &&
       computer_board.data[computer_board.small_boat[0][1][0]][computer_board.small_boat[0][1][1]]) == " H "
       true
-    elsif
+    else
       false
     end
   end
 
-  def boat_3_long_sunk?
+  def computer_boat_3_long_sunk?
     if (computer_board.data[computer_board.big_boat[0][0][0]][computer_board.big_boat[0][0][1]] &&
       computer_board.data[computer_board.big_boat[0][1][0]][computer_board.big_boat[0][1][1]] &&
       computer_board.data[computer_board.big_boat[0][2][0]][computer_board.big_boat[0][2][1]]) == " H "

@@ -79,13 +79,15 @@ class GameTest < Minitest::Test
     hit_spot = "a1"
     game.shot(hit_spot)
 
-    refute game.boat_2_long_sunk?
+    refute game.computer_boat_2_long_sunk?
+    assert_equal false, game.computer_boat_2_long_sunk?
 
     game.computer_board.data[0][1] = " B "
     hit_spot = "a2"
     game.shot(hit_spot)
 
-    assert game.boat_2_long_sunk?
+    assert game.computer_boat_2_long_sunk?
+        assert_equal true, game.computer_boat_2_long_sunk?
   end
 
   def test_it_knows_if_3_long_boat_is_sunk
@@ -99,22 +101,22 @@ class GameTest < Minitest::Test
     hit_spot = "a1"
     game.shot(hit_spot)
 
-    refute game.boat_3_long_sunk?
-    assert_equal false, game.boat_3_long_sunk?
+    refute game.computer_boat_3_long_sunk?
+    assert_equal false, game.computer_boat_3_long_sunk?
 
     game.computer_board.data[0][1] = " B "
     hit_spot = "a2"
     game.shot(hit_spot)
 
-    refute game.boat_3_long_sunk?
-    assert_equal false, game.boat_3_long_sunk?
+    refute game.computer_boat_3_long_sunk?
+    assert_equal false, game.computer_boat_3_long_sunk?
 
     game.computer_board.data[0][2] = " B "
     hit_spot = "a3"
     game.shot(hit_spot)
 
-    assert game.boat_3_long_sunk?
-    assert_equal true, game.boat_3_long_sunk?
+    assert game.computer_boat_3_long_sunk?
+    assert_equal true, game.computer_boat_3_long_sunk?
   end
 
 

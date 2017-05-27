@@ -23,7 +23,7 @@ class BattleshipMenu
       game = Game.new
       system "clear"
       # game.game_start_time = Time.now or something like that.
-      game.active_game_play
+      game.activate_game_play
     else
       system "clear"
       start_menu

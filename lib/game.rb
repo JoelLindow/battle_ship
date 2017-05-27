@@ -62,6 +62,16 @@ class Game
     end
   end
 
+  def boat_3_long_sunk?
+    if (computer_board.data[computer_board.big_boat[0][0][0]][computer_board.big_boat[0][0][1]] &&
+      computer_board.data[computer_board.big_boat[0][1][0]][computer_board.big_boat[0][1][1]] &&
+      computer_board.data[computer_board.big_boat[0][2][0]][computer_board.big_boat[0][2][1]]) == " H "
+      true
+    else
+      false
+    end
+  end
+
   def game_start_time
     #going to lead to an instance variable that starts records start time.
   end

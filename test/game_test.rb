@@ -86,14 +86,8 @@ class GameTest < Minitest::Test
     game.shot(hit_spot)
 
     assert game.boat_2_long_sunk?
-
   end
-  # def test_it_knows_which_boat_was_hit
-  #   game = Game.new
-  #   game.computer_board.boat_2_long_positions[0][0] = " H "
-  #
-  #   assert_equal " H "
-  # end
+
 
 
 

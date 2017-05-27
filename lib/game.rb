@@ -54,10 +54,6 @@ class Game
   end
 
   def boat_2_long_sunk?
-    # binding.pry
-    # false if computer_board.boat_2_long_positions.include?(" B ")
-    # false if computer_board.boat_2_long_positions.include?(" M ")
-    # false if computer_board.boat_2_long_positions.include?(" . ")
     if (computer_board.data[computer_board.small_boat[0][0][0]][computer_board.small_boat[0][0][1]] &&
       computer_board.data[computer_board.small_boat[0][1][0]][computer_board.small_boat[0][1][1]]) == " H "
       true

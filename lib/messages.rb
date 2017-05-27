@@ -1,13 +1,16 @@
 class Messages
 
+  def self.welcome_speak
+      `say -v boing welcome to Battleship`
+  end
   def self.main_menu_message
-    "Welcome to the exciting and spine tingling strategy game
-    █████   ████  ██████ ██████ ██    █████  ████  ██  ██ ██████ █████
-    ██  ██ ██  ██   ██     ██   ██    ██    ██     ██  ██   ██   ██  ██
-    █████  ██████   ██     ██   ██    ████    ██   ██████   ██   █████
-    ██  ██ ██  ██   ██     ██   ██    ██        ██ ██  ██   ██   ██
-    █████  ██  ██   ██     ██   █████ █████  ████  ██  ██ ██████ ██
-    Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
+"     Welcome to the exciting and spine tingling strategy game
+  █████   ████  ██████ ██████ ██    █████  ████  ██  ██ ██████ █████
+  ██  ██ ██  ██   ██     ██   ██    ██    ██     ██  ██   ██   ██  ██
+  █████  ██████   ██     ██   ██    ████    ██   ██████   ██   █████
+  ██  ██ ██  ██   ██     ██   ██    ██        ██ ██  ██   ██   ██
+  █████  ██  ██   ██     ██   █████ █████  ████  ██  ██ ██████ ██
+   Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
   end
 
   def self.ship_placement_message

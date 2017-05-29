@@ -129,7 +129,35 @@ Another invalid placement would be C3 because C3 and D3 exist but E3 does not!
     "Your second boat has been placed on the board. Get ready to play Battleship!"
   end
 
+  def self.pick_human_shot_coordinates_message
+    "Pick your coordniates to take a shot on the enemy's gameboard."
+  end
+
+  def self.boat_two_long_is_sunk
+    "Little Boat is sunk"
+  end
+
+  def self.boat_two_long_still_floating
+    "Little Boat is still floating!"
+  end
+
+  def self.boat_three_long_is_sunk
+    "Big Boat is sunk"
+  end
+
+  def self.boat_three_long_still_floating
+    "Big Boat is still floating!"
+  end
+
   def self.user_miss
     "No boat here. MISS!"
+  end
+
+  def self.user_hit
+    "Nice shot! You hit an enemy boat!"
+  end
+
+  def self.already_shot_here
+    "You already shot here! Pick some new coordinates, goober!"
   end
 end

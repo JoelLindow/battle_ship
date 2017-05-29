@@ -34,7 +34,7 @@ class GameTest < Minitest::Test
     game = Game.new
     hit_spot = "a2"
     game.computer_board.data[0][1] = " . "
-    game.shot(hit_spot)
+    game.shot_on_computer(hit_spot)
 
     assert_equal " M ", game.computer_board.data[0][1]
   end
@@ -43,7 +43,7 @@ class GameTest < Minitest::Test
     game = Game.new
     hit_spot = "a2"
     game.computer_board.data[0][1] = " B "
-    game.shot(hit_spot)
+    game.shot_on_computer(hit_spot)
 
     assert_equal " H ", game.computer_board.data[0][1]
   end
@@ -52,7 +52,7 @@ class GameTest < Minitest::Test
     game = Game.new
     hit_spot = "a2"
     game.computer_board.data[0][1] = " B "
-    game.shot(hit_spot)
+    game.shot_on_computer(hit_spot)
 
     assert_equal 1, game.count_hits_against_computer
   end
@@ -61,11 +61,11 @@ class GameTest < Minitest::Test
     game = Game.new
     hit_spot = "a2"
     game.computer_board.data[0][1] = " B "
-    game.shot(hit_spot)
+    game.shot_on_computer(hit_spot)
 
     hit_spot = "a3"
     game.computer_board.data[0][2] = " B "
-    game.shot(hit_spot)
+    game.shot_on_computer(hit_spot)
 
     assert_equal 2, game.count_hits_against_computer
   end
@@ -77,14 +77,14 @@ class GameTest < Minitest::Test
     game.computer_board.small_boat[0][0] = [0, 0]
     game.computer_board.small_boat[0][1] = [0, 1]
     hit_spot = "a1"
-    game.shot(hit_spot)
+    game.shot_on_computer(hit_spot)
 
     refute game.computer_boat_2_long_sunk?
     assert_equal false, game.computer_boat_2_long_sunk?
 
     game.computer_board.data[0][1] = " B "
     hit_spot = "a2"
-    game.shot(hit_spot)
+    game.shot_on_computer(hit_spot)
 
     assert game.computer_boat_2_long_sunk?
         assert_equal true, game.computer_boat_2_long_sunk?
@@ -99,27 +99,27 @@ class GameTest < Minitest::Test
     game.computer_board.big_boat[0][1] = [0, 1]
     game.computer_board.big_boat[0][2] = [0, 2]
     hit_spot = "a1"
-    game.shot(hit_spot)
+    game.shot_on_computer(hit_spot)
 
     refute game.computer_boat_3_long_sunk?
     assert_equal false, game.computer_boat_3_long_sunk?
 
     game.computer_board.data[0][1] = " B "
     hit_spot = "a2"
-    game.shot(hit_spot)
+    game.shot_on_computer(hit_spot)
 
     refute game.computer_boat_3_long_sunk?
     assert_equal false, game.computer_boat_3_long_sunk?
 
     game.computer_board.data[0][2] = " B "
     hit_spot = "a3"
-    game.shot(hit_spot)
+    game.shot_on_computer(hit_spot)
 
     assert game.computer_boat_3_long_sunk?
     assert_equal true, game.computer_boat_3_long_sunk?
   end
 
-  def 
+  # def
 
 
 

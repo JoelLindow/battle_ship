@@ -24,40 +24,87 @@ class Game
 
   def take_turns_shooting
     human_shot
-    binding.pry
-    ""
+    computer_shot
+    check_for_game_over
+  end
+
+  def check_for_game_over
+    take_turns_shooting
+    #THIS MUST CHECK TO SEE IF ONE PLAYER HAS ACHIEVED 5 SHOTS!!!!!
+    
   end
 
   def human_shot
     system "clear"
-    puts computer_board.full_computer_board_view
+    puts show_both_boards
     puts Messages.pick_human_shot_coordinates_message
     pick_human_shot_coordinates
+    sleep(1)
   end
 
-  def pick_human_shot_coordinates
-    shot = gets.chomp
+  def computer_shot
+    random_letter = ["a", "b", "c", "d"].sample
+    random_number = rand(1..4)
+    shot = random_letter + "#{random_number}"
+    # binding.pry
     input = input_keys.board_position[shot]
     row = input[0]
     index = input[1]
-    # binding.pry
+    if user_board.data[row][index] == " M "
+      computer_shot
+    elsif user_board.data[row][index] == " H "
+      pick_human_shot_coordinates
+    elsif user_board.data[row][index] == " . "
+      shot_on_user(shot)
+
+      user_board.data[row][index] = " M "
+
+      puts show_both_boards
+
+      puts " COMPUTER MISSED"
+
+    elsif user_board.data[row][index] == " B "
+
+      shot_on_user(shot)
+
+      user_board.data[row][index] = " H "
+
+      puts show_both_boards
+
+      puts " COMPUTER HIT ONE OF YOUR BOATS!"
+    end
+  end
+
+  def pick_human_shot_coordinates
+    shot = gets.chomp.downcase
+    input = input_keys.board_position[shot]
+    row = input[0]
+    index = input[1]
     if computer_board.data[row][index] == " M "
-      puts computer_board.full_computer_board_view
+      puts show_both_boards
       puts Messages.already_shot_here
       pick_human_shot_coordinates
     elsif computer_board.data[row][index] == " H "
-      puts computer_board.full_computer_board_view
+      puts show_both_boards
       puts Messages.already_shot_here
       pick_human_shot_coordinates
     elsif computer_board.data[row][index] == " . "
+      shot_on_computer(shot)
       computer_board.data[row][index] = " M "
-      puts computer_board.full_computer_board_view
+      puts show_both_boards
       puts Messages.user_miss
     elsif computer_board.data[row][index] == " B "
+      shot_on_computer(shot)
       computer_board.data[row][index] = " H "
-      puts computer_board.full_computer_board_view
+      puts show_both_boards
       puts Messages.user_hit
     end
+  end
+
+  def show_both_boards
+    "#{user_board.full_user_board}
+#{computer_board.full_computer_board_view}
+"
   end
 
   def player_place_boats
@@ -69,17 +116,26 @@ class Game
     keys
   end
 
+  def shot_on_user(spot)
+    targeted_space = input_keys.board_position[spot]
+    targeted_row = targeted_space[0]
+    targeted_index = targeted_space[1]
+    if user_board.data[targeted_row][targeted_index] == " . "
+      user_board.data[targeted_row][targeted_index] = " M "
+    elsif user_board.data[targeted_row][targeted_index] == " B "
+      user_board.data[targeted_row][targeted_index] = " H "
+    end
+  end
+
+
   def shot_on_computer(spot)
     targeted_space = input_keys.board_position[spot]
     targeted_row = targeted_space[0]
     targeted_index = targeted_space[1]
     if computer_board.data[targeted_row][targeted_index] == " . "
-      # puts Messages.user_miss   <<<<< SHOWS IN TESTS!
       computer_board.data[targeted_row][targeted_index] = " M "
     elsif computer_board.data[targeted_row][targeted_index] == " B "
       computer_board.data[targeted_row][targeted_index] = " H "
-    # elsif computer_board.data[targeted_row][targeted_index] == " H "
-    #   YOU HAVE ALREADY HIT THIS SPOT
     end
   end
 

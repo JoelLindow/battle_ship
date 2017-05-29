@@ -42,7 +42,7 @@ class UserShipPlacement
         else
           system "clear"
           puts Messages.invalid_boat_placement_message
-          sleep(2)
+          sleep(1)
           first_boat_placement
         end
       elsif direction_boat_1 == 1     #1 is vertical
@@ -61,7 +61,7 @@ class UserShipPlacement
         else
           system "clear"
           puts Messages.invalid_boat_placement_message
-          sleep(2)
+          sleep(1)
           first_boat_placement
         end
       end
@@ -96,7 +96,7 @@ class UserShipPlacement
       else
         system "clear"
         puts Messages.invalid_boat_placement_message
-        sleep(2)
+        sleep(1)
         second_boat_placement
       end
     elsif direction_boat_2 == 1   #1 is vertical

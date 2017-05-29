@@ -26,8 +26,8 @@ class GameBoard
   end
 
   def full_user_board
-   "YOUR BOARD
-1  2  3  4
+   "YOUR BOARD: B = Your Boat   H = Computer Hit You    M = Computer Missed You
+  1  2  3  4
 A #{data[0][0]}#{data[0][1]}#{data[0][2]}#{data[0][3]}
 B #{data[1][0]}#{data[1][1]}#{data[1][2]}#{data[1][3]}
 C #{data[2][0]}#{data[2][1]}#{data[2][2]}#{data[2][3]}
@@ -36,8 +36,8 @@ D #{data[3][0]}#{data[3][1]}#{data[3][2]}#{data[3][3]}
   end
 
   def full_computer_board_view
-    "COMPUTER BOARD
-1  2  3  4
+    "COMPUTER BOARD: H = You Hit Computer Here   M = You Missed Computer Here
+  1  2  3  4
 A#{filtered_view(0, 0)}#{filtered_view(0, 1)}#{filtered_view(0, 2)}#{filtered_view(0, 3)}
 B#{filtered_view(1, 0)}#{filtered_view(1, 1)}#{filtered_view(1, 2)}#{filtered_view(1, 3)}
 C#{filtered_view(2, 0)}#{filtered_view(2, 1)}#{filtered_view(2, 2)}#{filtered_view(2, 3)}

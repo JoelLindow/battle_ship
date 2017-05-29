@@ -19,7 +19,7 @@ class Game
   end
 
   def start_game
-    take_turns_shooting
+    check_for_game_over
   end
 
   def take_turns_shooting
@@ -38,49 +38,52 @@ class Game
     system "clear"
     puts show_both_boards
     puts Messages.pick_human_shot_coordinates_message
-    pick_human_shot_coordinates
+    take_human_shot
     sleep(1)
   end
 
   def computer_shot
+    sleep(1)
     system "clear"
     random_letter = ["a", "b", "c", "d"].sample
     random_number = rand(1..4)
     shot = random_letter + "#{random_number}"
-    # binding.pry
     input = input_keys.board_position[shot]
     row = input[0]
     index = input[1]
     if user_board.data[row][index] == " M "
       computer_shot
     elsif user_board.data[row][index] == " H "
-      pick_human_shot_coordinates
+      computer_shot
     elsif user_board.data[row][index] == " . "
       shot_on_user(shot)
       user_board.data[row][index] = " M "
       puts show_both_boards
       puts " COMPUTER MISSED"
+      sleep(2)
     elsif user_board.data[row][index] == " B "
       shot_on_user(shot)
       user_board.data[row][index] = " H "
       puts show_both_boards
       puts " COMPUTER HIT ONE OF YOUR BOATS!"
+      sleep(2)
     end
   end
 
-  def pick_human_shot_coordinates
+  def take_human_shot
     shot = gets.chomp.downcase
     input = input_keys.board_position[shot]
     row = input[0]
     index = input[1]
+    system "clear"
     if computer_board.data[row][index] == " M "
       puts show_both_boards
       puts Messages.already_shot_here
-      pick_human_shot_coordinates
+      take_human_shot
     elsif computer_board.data[row][index] == " H "
       puts show_both_boards
       puts Messages.already_shot_here
-      pick_human_shot_coordinates
+      take_human_shot
     elsif computer_board.data[row][index] == " . "
       shot_on_computer(shot)
       computer_board.data[row][index] = " M "

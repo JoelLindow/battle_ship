@@ -11,8 +11,8 @@ class MessagesTest < Minitest::Test
   end
 
   def test_it_can_access_main_menu_message
-    assert_equal "Welcome to the exciting and spine tingling strategy game",
-                 Messages.main_menu_message[0..55]
+    assert_equal "     Welcome to the exciting and spine tingling strategy game",
+                 Messages.main_menu_message[0..60]
   end
 
   def test_it_can_access_another_method_called_ship_placement_message

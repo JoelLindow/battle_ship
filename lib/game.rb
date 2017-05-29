@@ -31,7 +31,7 @@ class Game
   def check_for_game_over
     take_turns_shooting
     #THIS MUST CHECK TO SEE IF ONE PLAYER HAS ACHIEVED 5 SHOTS!!!!!
-    
+
   end
 
   def human_shot
@@ -43,6 +43,7 @@ class Game
   end
 
   def computer_shot
+    system "clear"
     random_letter = ["a", "b", "c", "d"].sample
     random_number = rand(1..4)
     shot = random_letter + "#{random_number}"
@@ -56,21 +57,13 @@ class Game
       pick_human_shot_coordinates
     elsif user_board.data[row][index] == " . "
       shot_on_user(shot)
-
       user_board.data[row][index] = " M "
-
       puts show_both_boards
-
       puts " COMPUTER MISSED"
-
     elsif user_board.data[row][index] == " B "
-
       shot_on_user(shot)
-
       user_board.data[row][index] = " H "
-
       puts show_both_boards
-
       puts " COMPUTER HIT ONE OF YOUR BOATS!"
     end
   end

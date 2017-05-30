@@ -6,7 +6,7 @@ Each player has a small boat (2 spaces long) and a big boat (3 spaces long). Whe
 
 There's still a LOT to do to make this project a truly "deliverable" piece of software, but in the meantime it functions as it is intended to and is playable.
 
-[Imgur](http://i.imgur.com/Zhdu6oD.gifv)
+![Imgur](http://i.imgur.com/Zhdu6oD.gifv)
 
 ### Future of project
 * Project requires massive amounts of refactoring.

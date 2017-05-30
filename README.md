@@ -21,5 +21,5 @@ This project was a lot of fun. It was a huge challenge to figure out how to rand
 
 I highly enjoyed this project and look forward to perfecting it in the future when time allows.
 
-####Joel Lindow
+#### Joel Lindow
 Software Developer

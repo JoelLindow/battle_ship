@@ -6,7 +6,7 @@ Each player has a small boat (2 spaces long) and a big boat (3 spaces long). Whe
 
 There's still a LOT to do to make this project a truly "deliverable" piece of software, but in the meantime it functions as it is intended to and is playable.
 
-[Imgur](http://i.imgur.com/Zhdu6oD.gifv)
+![Gameplay Animation](http://i.imgur.com/Zhdu6oD.gif)
 
 ### Future of project
 * Project requires massive amounts of refactoring.
@@ -21,5 +21,5 @@ This project was a lot of fun. It was a huge challenge to figure out how to rand
 
 I highly enjoyed this project and look forward to perfecting it in the future when time allows.
 
-####Joel Lindow
+#### Joel Lindow
 Software Developer

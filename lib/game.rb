@@ -15,23 +15,61 @@ class Game
   def activate_game_play
     player_place_boats
     @game_start_time = Time.now
-    start_game
+    game_play_active
   end
 
-  def start_game
-    check_for_game_over
+  def game_play_active
+    if keep_going? == true
+      take_turns_shooting
+    end
+  end
+
+  def keep_going?
+    if (analyze_user_hits_on_computer || analyze_computer_hits_on_user) == "end"
+      false
+    else
+      true
+    end
+  end
+
+  def analyze_user_hits_on_computer
+    user_hits = []
+    computer_board.data.flatten.each do |space|
+      user_hits << space if space == " H "
+    end
+    if user_hits.count == 5
+      user_wins
+    end
+  end
+
+  def user_wins
+    system "clear"
+    puts "USER WINS!!!! GAME OVER!"
+    sleep(1)
+    "end"
+  end
+
+  def analyze_computer_hits_on_user
+    comp_hits = []
+    user_board.data.flatten.each do |space|
+      comp_hits << space if space == " H "
+    end
+    if comp_hits.count == 5
+      computer_wins
+    end
+  end
+
+  def computer_wins
+    system "clear"
+    puts "COMPUTER WINS!!!! GAME OVER!"
+    sleep(1)
+    "end"
   end
 
   def take_turns_shooting
     human_shot
     computer_shot
-    check_for_game_over
-  end
-
-  def check_for_game_over
-    take_turns_shooting
-    #THIS MUST CHECK TO SEE IF ONE PLAYER HAS ACHIEVED 5 SHOTS!!!!!
-
+    game_play_active
   end
 
   def human_shot
